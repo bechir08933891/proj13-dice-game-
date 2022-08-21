@@ -14,12 +14,21 @@ score1El.textContent = 0;
 // bring the current score
 let current0El = document.getElementById("current--0");
 let current1El = document.getElementById("current--1");
+// plyr selection
+let player0El = document.querySelector(".player--0");
+let player1El = document.querySelector(".player--1");
 
 // add the hiden class to dice
 diceEl.classList.add("hidden");
 
 // player score
 let currentScore = 0;
+
+// activ player
+let activPlayer = 0;
+
+// set the cores of two player
+let scores = [0, 0];
 
 // rolling dice functionality
 btnRoll.addEventListener("click", function () {
@@ -34,8 +43,17 @@ btnRoll.addEventListener("click", function () {
   if (dice !== 1) {
     // add dice value to current score
     currentScore += dice;
-    current0El.textContent = currentScore;
+    // bring the current player
+    document.getElementById(`current--${activPlayer}`).textContent =
+      currentScore;
+    // current0El.textContent = currentScore;
   } else {
-    // vid84
+    document.getElementById(`current--${activPlayer}`).textContent = 0;
+    // change the activ playr
+    activPlayer = activPlayer === 0 ? 1 : 0;
+    currentScore = 0;
+    player0El.classList.toggle("player--active");
+    player1El.classList.toggle("player--active");
+    // vid 85
   }
 });
