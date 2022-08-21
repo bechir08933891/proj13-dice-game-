@@ -93,3 +93,20 @@ btnHold.addEventListener("click", function () {
     }
   }
 });
+
+// wowrk with btn new and set all value to initial status
+btnNew.addEventListener("click", function () {
+  score0El.textContent = 0;
+  score1El.textContent = 0;
+  current0El.textContent = 0;
+  current1El.textContent = 0;
+  player0El.classList.remove("player--winner");
+  player1El.classList.remove("player--winner");
+  player0El.classList.add("player--active");
+  player1El.classList.remove("player--active");
+  diceEl.classList.add("hidden");
+  scores = [0, 0]; // use alt+arrow to move it
+  currentScore = 0;
+  activPlayer = 0;
+  playing = true;
+});
